@@ -1,0 +1,31 @@
+{
+  "name": "woloxapp-backend",
+  "version": "1.0.0",
+  "description": "Proyecto de prueba para ingreso a Wolox",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/estebancode/WoloxApp-BackEnd.git"
+  },
+  "keywords": [
+    "Wolox App",
+    "Back-End"
+  ],
+  "author": "Esteban Beckett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/estebancode/WoloxApp-BackEnd/issues"
+  },
+  "homepage": "https://github.com/estebancode/WoloxApp-BackEnd#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "lodash": "^4.17.11",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.3.0",
+    "nodemon": "^1.18.10"
+  }
+}
