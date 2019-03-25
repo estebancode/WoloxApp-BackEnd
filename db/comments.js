@@ -8,6 +8,18 @@ module.exports ={
         const comments = db.collection('comments').find({}).toArray();
         return comments;
     },
+    getAllByPostId: function (id) {
+        const db = mongo.instance().db(DB_NAME);  
+        postId = Number(id);     
+        const comments = db.collection('comments').find({ 'postId' : postId  }).toArray();
+        return comments;
+    },
+    getAllByPostNameAndBody: function (filter) {
+        const db = mongo.instance().db(DB_NAME);  
+        var query = { '$or' :[{'name': `/${filter}/`},{ 'body': filter }] };     
+        const comments = db.collection('comments').find(query).toArray();
+        return comments;
+    },
     create: function (params) {
         const db = mongo.instance().db(DB_NAME);
         db.collection('comments').save(params,function (err) {

@@ -27,6 +27,7 @@ app.get('/', (req, res) => {
 app.use('/api/users', require('./routes/users'));
 app.use('/api/albums', require('./routes/albums'));
 app.use('/api/photos', require('./routes/photos'));
+app.use('/api/posts', require('./routes/posts'));
 app.use('/api/comments', require('./routes/comments'));
 app.use('/api/synchronize', require('./routes/synchronize'));
 
