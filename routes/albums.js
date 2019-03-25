@@ -1,12 +1,31 @@
 const { Router } = require('express');
-const fetch = require('node-fetch');
+const db = require('../db/albums');
 
 const router = new Router();
 
 router.get('/', async (req, res) => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/albums');
-    const data = await response.json();
-    res.json(data);
+    const response = await db.getAll();
+    res.json(response);
+});
+
+router.get('/getAllByUserId/:id', async (req, res) => {
+    const id = req.params.id;
+    if (id>0) {       
+        const response = await db.getAllByUserId(id);
+        res.json(response);
+    }else{
+        res.status(404).json({'message':'id is required'});
+    }
+});
+
+router.get('/GetById/:id', async (req, res) => {
+    const id = req.params.id;
+    if (id>0) {
+        const response = await db.getById(id);
+        res.json(response);
+    }else{
+        res.status(404).json({'message':'id is required'});
+    }
 });
 
 module.exports = router;

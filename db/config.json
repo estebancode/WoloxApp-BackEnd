@@ -1,0 +1,7 @@
+{
+    "DB_HOST": "localhost",
+    "DB_PORT": 27017,
+    "DB_NAME": "woloxappbackend",
+    "DB_USER": "woloxadmin",
+    "DB_PASSWORD": "Medellin1."
+}
