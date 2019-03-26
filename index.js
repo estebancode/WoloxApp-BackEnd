@@ -12,7 +12,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.set('port', process.env.PORT);
+app.set('port', process.env.PORT || 4000);
 app.set('json spaces', 2);
 
 // middlewares
