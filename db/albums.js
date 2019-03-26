@@ -29,7 +29,9 @@ module.exports ={
     updatePermision: function (params) {
         const db = mongo.instance().db(DB_NAME);
         const querySearch ={ 'id': params.id };
-        const queryUpdate = { $push: {'permission': params.permission } };
+        console.log('permission ',params.permissions);
+        
+        const queryUpdate = { $push: {'permission': params.permissions } };
         db.collection('albums').updateOne(querySearch,queryUpdate,function (err) {
             if(err) throw err;
             console.log("Los datos han sido actualizados satisfactoriamente!");
