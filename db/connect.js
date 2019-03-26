@@ -1,7 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
 const { DB_HOST, DB_USER, DB_PASSWORD ,DB_NAME, DB_PORT } = require("./config");
-const connectionUrl = `mongodb://${DB_HOST}:${DB_PORT}`;
-//const connectionUrl = `mongodb+srv://${DB_USER}:${DB_PASSWORD}${DB_HOST}`;
+//const connectionUrl = `mongodb://${DB_HOST}:${DB_PORT}`;
+const connectionUrl = `mongodb+srv://${DB_USER}:${DB_PASSWORD}${DB_HOST}`;
+const URL = encodeURI(connectionUrl);
 
 module.exports = (()=>{
     let instance = null,
@@ -9,7 +10,7 @@ module.exports = (()=>{
 
     function connect() {
         return new Promise((resolve, reject)=>{
-            MongoClient.connect(connectionUrl, { useNewUrlParser: true }, function(err, client) {
+            MongoClient.connect(URL, { useNewUrlParser: true }, function(err, client) {
                 if (err) { reject(err); }
                 console.log("Conectado satisfactoriamente al servidor de Mongo!");
                 instance = client;

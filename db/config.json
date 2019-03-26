@@ -1,5 +1,5 @@
 {
-    "DB_HOST": "localhost",
+    "DB_HOST": "@cluster20190324-9iooa.mongodb.net/test?retryWrites=true",
     "DB_PORT": 27017,
     "DB_NAME": "woloxappbackend",
     "DB_USER": "woloxadmin",
