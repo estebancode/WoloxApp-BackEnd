@@ -26,6 +26,16 @@ module.exports ={
             if(err) throw err;
         });
     },
+    updatePermision: function (params) {
+        const db = mongo.instance().db(DB_NAME);
+        const querySearch ={ 'id': params.id };
+        const queryUpdate = { $push: {'permission': params.permission } };
+        db.collection('albums').updateOne(querySearch,queryUpdate,function (err) {
+            if(err) throw err;
+            console.log("Los datos han sido actualizados satisfactoriamente!");
+        });
+        return {'status':'success'};
+    },
     createMany: function (albumsData) {
         const db = mongo.instance().db(DB_NAME);
         db.collection("albums").insertMany(albumsData, (err, result)=>{

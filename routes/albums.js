@@ -28,4 +28,14 @@ router.get('/GetById/:id', async (req, res) => {
     }
 });
 
+router.put('/permission/:id', async (req, res) => {
+    const id = req.params.id;
+    if (id>0) {
+        const response = await db.updatePermision(req.body);
+        res.json(response);
+    }else{
+        res.status(404).json({'message':'id is required'});
+    }
+});
+
 module.exports = router;
